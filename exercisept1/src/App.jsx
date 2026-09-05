@@ -27,6 +27,10 @@ const DisplayCounter = (props) => {
     return (<div>El contador va en: {props.counter}</div>)
 }
 
+const Buttonnnn = (props) => {
+    return (<button onClick={props.onClick}>{props.text}</button>)
+}
+
 
 const App = () => {
     //Counter React Hook.
@@ -34,10 +38,12 @@ const App = () => {
 
     const resetCount = () => {setCount(0)}
     const increaseCount = () => {setCount(count + 1)}
+    const decreaseCount = () => {setCount(count - 1)}
     return (<div>
         <DisplayCounter counter={count}/>
-        <button onClick={() => {resetCount()}}>Reiniciar</button>
-        <button onClick={() => {increaseCount()}}>Aumentar</button>
+        <Buttonnnn onClick={resetCount} text="Reset"/>
+        <Buttonnnn onClick={increaseCount} text="Increase"/>
+        <Buttonnnn onClick={decreaseCount} text="Decrease"/>
     </div>)
 }
 export default App;
