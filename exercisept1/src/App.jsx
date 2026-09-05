@@ -1,4 +1,4 @@
-const Hello = (props) => {
+/*const Hello = (props) => {
     console.log(props)
     console.log(props, typeof props.age)
     const name = props.name
@@ -19,8 +19,25 @@ const luis = {
     name: 'Luis',
     age: 20
 }
+*/
+import {useState} from "react";
+
+//Display component
+const DisplayCounter = (props) => {
+    return (<div>El contador va en: {props.counter}</div>)
+}
+
 
 const App = () => {
-    return (<Hello name={luis.name} age={luis.age} />)
+    //Counter React Hook.
+    const [count, setCount] = useState(0)
+
+    const resetCount = () => {setCount(0)}
+    const increaseCount = () => {setCount(count + 1)}
+    return (<div>
+        <DisplayCounter counter={count}/>
+        <button onClick={() => {resetCount()}}>Reiniciar</button>
+        <button onClick={() => {increaseCount()}}>Aumentar</button>
+    </div>)
 }
 export default App;
