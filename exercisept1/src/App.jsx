@@ -23,8 +23,8 @@ const luis = {
 import {useState} from "react";
 
 //Display component
-const DisplayCounter = (props) => {
-    return (<div>El contador va en: {props.counter}</div>)
+const DisplayCounter = ({count}) => {
+    return (<div>El contador va en: {count}</div>)
 }
 
 const Buttonnnn = (props) => {
@@ -35,10 +35,18 @@ const Buttonnnn = (props) => {
 const App = () => {
     //Counter React Hook.
     const [count, setCount] = useState(0)
+    console.log('rendering with counter value', count)
 
-    const resetCount = () => {setCount(0)}
-    const increaseCount = () => {setCount(count + 1)}
-    const decreaseCount = () => {setCount(count - 1)}
+    const resetCount = () => {setCount(0)
+        console.log('resetting to zero, value before', count)
+    }
+    const increaseCount = () => {setCount(count + 1)
+        console.log('increasing, value before', count)
+    }
+
+    const decreaseCount = () => {setCount(count - 1)
+        console.log('increasing, value before', count)
+    }
     return (<div>
         <DisplayCounter counter={count}/>
         <Buttonnnn onClick={resetCount} text="Reset"/>
